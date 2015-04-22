@@ -1,42 +1,81 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="codeSplitter">
-  <head>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Cost Splitter</title>
+    <!-- Load css in head not scripts -->
+    <link href="styles/cssreset.css" rel="stylesheet" />
+    <link href="styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="styles/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="styles/font-awesome.min.css" rel="stylesheet" />
+    <link href="styles/site.css" rel="stylesheet" />
+</head>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js"></script>
-    <script src="app.js"></script>
-  </head>
-  
-  <body>
-    <header>
-      <h1 align="center">Costsplitter</h1>
-      <nav class="navbar navbar-default">
+<body ng-app="costSplitter">
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-          <ul class="nav navbar-nav nav-tabs">
-            <li role="presentation"> <a href="#/projects">Projects</a></li>
-            <li role="presentation"class="active"><a href="#/add">Add</a></li>
-            <li role="presentation"><a href="#/contacts">Contacts</a></li>
-          </ul>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" data-ui-sref="home">Cost Splitter</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a data-ui-sref="projects">Projects</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a data-ui-sref="add">Add</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a data-ui-sref="contacts">Contacts</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </nav>
-    </header>
-    <div class="container">
-      <div ng-view>Hej</div>  
     </div>
-    
+    <div class="container body-content">
+        <div class="row" id="content">
+            <div data-ui-view></div>
+        </div>
+        <div class="row" id="footer">
+            <hr />
+            <p class="text-left">&copy; Cost Splitter - 2015</p>
+            <div style="padding-top:500px;">
+                $state = {{$state.current.name}}<br />
+                $stateParams = {{$stateParams}}<br />
+                $state full url = {{ $state.$current.url.source }}
+            </div>
+        </div>
+
+    </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="scripts/vendor/jquery-2.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-  </body>
+    <script src="scripts/vendor/bootstrap.min.js"></script>
+    <script src="scripts/vendor/angular.min.js"></script>
+    <script src="scripts/vendor/angular-animate.min.js"></script>
+    <script src="scripts/vendor/angular-resource.min.js"></script>
+    <script src="scripts/vendor/angular-ui-router.min.js"></script>
+
+    <!--Load main module-->
+    <script src="scripts/app/app.js"></script>
+    <!--Load configs -->
+    <script src="scripts/app/config.js"></script>
+    <!--Load services-->
+    <!--Load controllers-->
+    <script src="scripts/app/controllers/controller.js"></script>
+    <!--Load filters-->
+    <!--Load directives-->
+</body>
 </html>
