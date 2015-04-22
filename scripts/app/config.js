@@ -9,24 +9,36 @@
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
     function config($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/home/expenses');
         $stateProvider
             .state("home", {
+                'abstract': true,
                 url: '/home',
-                templateUrl: 'templates/home.html'
+                templateUrl: 'templates/home.html',
+                controller: 'homeController',
+                resolve: { resolvedExpenses: expensesResolver },
+                controllerAs: 'vm'
             })
-            .state("projects", {
-                url: '/projects',
-                templateUrl: 'templates/projects.html'
+            .state("home.expenses", {
+                url: '/expenses',
+                templateUrl: 'templates/expenses.html',
+                controller: 'expensesController',
+                controllerAs: 'vm'
             })
-            .state("add", {
+            .state("home.add", {
                 url: '/add',
-                templateUrl: 'templates/add.html'
+                templateUrl: 'templates/add.html',
+                controller: 'addExpenseController',
+                controllerAs: 'vm'
             })
             .state("contacts", {
                 url: '/contacts',
                 templateUrl: 'templates/contacts.html'
             });
+    }
+
+    function expensesResolver() {
+        return [{ name: 'Mat', cost: 1500, project: 'Ibiza', currency: 'kr' }, { name: 'Bolaget', cost: 900, project: 'Fjällen', currency: 'kr' }];;
     }
 
     run.$inject = ['$rootScope', '$state', '$stateParams'];

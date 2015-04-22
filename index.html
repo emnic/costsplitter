@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
     <title>Cost Splitter</title>
     <!-- Load css in head not scripts -->
     <link href="styles/cssreset.css" rel="stylesheet" />
@@ -22,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" data-ui-sref="home">Cost Splitter</a>
+                <a class="navbar-brand" data-ui-sref="home.expenses">Cost Splitter</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -45,7 +45,9 @@
     </div>
     <div class="container body-content">
         <div class="row" id="content">
-            <div data-ui-view></div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div data-ui-view></div>
+            </div>
         </div>
         <div class="row" id="footer">
             <hr />
@@ -74,7 +76,9 @@
     <script src="scripts/app/config.js"></script>
     <!--Load services-->
     <!--Load controllers-->
-    <script src="scripts/app/controllers/controller.js"></script>
+    <script src="scripts/app/controllers/homeController.js"></script>
+    <script src="scripts/app/controllers/expensesController.js"></script>
+    <script src="scripts/app/controllers/addExpenseController.js"></script>
     <!--Load filters-->
     <!--Load directives-->
 </body>

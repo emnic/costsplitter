@@ -10,7 +10,6 @@
     function homeController() {
         /* jshint validthis:true */
         var vm = this;
-        vm.title = 'controller';
 
         activate();
 
