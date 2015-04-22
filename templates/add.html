@@ -6,12 +6,10 @@
 </div>
 <div class="row">
     Projekt:<br />
-    <select ng-model="vm.expense.project">
-        <option value="volvo"></option>
-        <option value="volvo">Fjällen</option>
-        <option value="saab">Ibiza</option>
-        <option value="mercedes">Svensexan</option>
-    </select>
-    <i class="fa fa-plus-square-o fa-lg" style="color: green"></i>
-    <div class="btn btn-info" ng-click="vm.expenses.push(vm.expense)" data-ui-sref="home.expenses">Spara</div>
+    <select ng-model="vm.expense.project" ng-options="project as project.name for project in vm.projects" ng-hide="creatingNew"></select>
+    <input type="text" ng-model="vm.newProjectName" ng-show="creatingNew" />
+    <i class="fa fa-plus-square-o fa-lg" style="color: green" ng-click="creatingNew = true" ng-hide="creatingNew"></i>
+    <i class="fa fa-save fa-lg" ng-click="vm.createNewProject(); creatingNew = false" ng-show="creatingNew"></i>
+    <br/>
+    <div class="btn btn-info" ng-click="vm.expenses.push(vm.expense)" data-ui-sref="home.expenses" style="margin-top: 10px">Spara</div>
 </div>
