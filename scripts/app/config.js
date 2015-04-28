@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     'use strict';
 
     angular
@@ -9,7 +9,7 @@
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
     function config($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/home/expenses');
+        $urlRouterProvider.otherwise('/');
         $stateProvider
             .state("home", {
                 'abstract': true,
@@ -19,13 +19,13 @@
                 resolve: { resolvedExpenses: expensesResolver },
                 controllerAs: 'vm'
             })
-            .state("home.expenses", {
+            .state("expenses", {
                 url: '/expenses',
                 templateUrl: 'templates/expenses.html',
                 controller: 'expensesController',
                 controllerAs: 'vm'
             })
-            .state("home.add", {
+            .state("add", {
                 url: '/add',
                 templateUrl: 'templates/add.html',
                 controller: 'addExpenseController',
@@ -33,7 +33,15 @@
             })
             .state("contacts", {
                 url: '/contacts',
-                templateUrl: 'templates/contacts.html'
+                templateUrl: 'templates/contacts.html',
+                controller: 'contactsController',
+                controllerAs: 'vm'
+            })
+            .state("projects", {
+                url: '/projects',
+                templateUrl: 'templates/projects.html',
+                controller: 'projectsController',
+                controllerAs: 'vm'
             });
     }
 
