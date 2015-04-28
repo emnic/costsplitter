@@ -46,7 +46,7 @@
     }
 
     function expensesResolver() {
-        return [{ name: 'Mat', cost: 1500, project: { name: 'Ibiza', id: 1 }, currency: 'kr' }, { name: 'Bolaget', cost: 900, project: { name: 'Fjällen', id: 2 }, currency: 'kr' }];;
+        return [{ name: 'Mat', cost: 1500, project: { name: 'Ibiza', id: 1 }, currency: 'kr' }, { name: 'Bolaget', cost: 900, project: { name: 'Fjällen', id: 2 }, currency: 'kr' }];
     }
 
     run.$inject = ['$rootScope', '$state', '$stateParams'];
