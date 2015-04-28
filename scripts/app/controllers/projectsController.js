@@ -5,12 +5,12 @@
         .module('costSplitter')
         .controller('projectsController', projectsController);
 
-    projectsController.$inject = [];
+    projectsController.$inject = ['resolvedExpenses'];
 
-    function projectsController() {
+    function projectsController(resolvedExpenses) {
         /* jshint validthis:true */
         var vm = this;
-
+        vm.expenses = resolvedExpenses;
         activate();
 
         function activate() { }
