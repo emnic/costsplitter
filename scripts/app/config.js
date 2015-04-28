@@ -9,7 +9,7 @@
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
     function config($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/home/expenses');
         $stateProvider
             .state("home", {
                 'abstract': true,
@@ -19,25 +19,25 @@
                 resolve: { resolvedExpenses: expensesResolver },
                 controllerAs: 'vm'
             })
-            .state("expenses", {
+            .state("home.expenses", {
                 url: '/expenses',
                 templateUrl: 'templates/expenses.html',
                 controller: 'expensesController',
                 controllerAs: 'vm'
             })
-            .state("add", {
+            .state("home.add", {
                 url: '/add',
                 templateUrl: 'templates/add.html',
                 controller: 'addExpenseController',
                 controllerAs: 'vm'
             })
-            .state("contacts", {
+            .state("home.contacts", {
                 url: '/contacts',
                 templateUrl: 'templates/contacts.html',
                 controller: 'contactsController',
                 controllerAs: 'vm'
             })
-            .state("projects", {
+            .state("home.projects", {
                 url: '/projects',
                 templateUrl: 'templates/projects.html',
                 controller: 'projectsController',
